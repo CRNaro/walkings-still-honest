@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function Employees() {
+function Employees({ hourlyRate }) {
   const [numEmployees, setNumEmployees] = useState(0);
   const [employeeNames, setEmployeeNames] = useState([]);
 
@@ -27,18 +27,22 @@ function Employees() {
           ))}
         </select>
       </label>
-      {employeeNames.map((employee, index) => (
-        <div key={index}>
-          <label>
-            Name:
-            <input type="text" value={employee.name} onChange={handleEmployeeChange(index, 'name')} />
-          </label>
-          <label>
-            Hours:
-            <input type="number" value={employee.hours} onChange={handleEmployeeChange(index, 'hours')} />
-          </label>
-        </div>
-      ))}
+      {employeeNames.map((employee, index) => {
+        const cashToReceive = employee.hours * hourlyRate;
+        return (
+          <div key={index}>
+            <label>
+              Name:
+              <input type="text" value={employee.name} onChange={handleEmployeeChange(index, 'name')} />
+            </label>
+            <label>
+              Hours:
+              <input type="number" value={employee.hours} onChange={handleEmployeeChange(index, 'hours')} />
+            </label>
+            <p>Cash to receive: ${cashToReceive.toFixed(2)}</p>
+          </div>
+        );
+      })}
     </div>
   );
 }

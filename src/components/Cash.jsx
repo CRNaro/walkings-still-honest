@@ -2,10 +2,8 @@
 import { useState } from "react";
 import { Formik } from "formik";
 
-const Cash = () => {
-    const [totalCash, setTotalCash] = useState(0);
-
-    const handleInputChange = (e) => {
+const Cash = ({ totalCash, setTotalCash }) => {
+   const handleInputChange = (e) => {
         setTotalCash(e.target.value);
     };
     return (
