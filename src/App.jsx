@@ -20,7 +20,7 @@ function App() {
         <Cash totalCash={totalCash} setTotalCash={setTotalCash}/>
         <Hours totalHours={totalHours} setTotalHours={setTotalHours}/>
         <Employees hourlyRate={hourlyRate} setTotalHoursEntered={setTotalHoursEntered}  />  
-        <p style={{ color: totalHoursEntered >= totalHours ? 'black' : 'red'}}>
+        <p style={{ color: totalHoursEntered >= totalHours ? 'green' : 'red'}}>
           ${totalCash} cash / {totalHours} total hours worked = ${hourlyRate.toFixed(2)} per hour worked</p>
         {/* <Disbursment />  */}
         
