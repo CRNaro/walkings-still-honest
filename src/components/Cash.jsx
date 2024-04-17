@@ -1,8 +1,8 @@
-import React from "react";
+
 import { useState } from "react";
 import { Formik } from "formik";
 
-const CalcMain = () => {
+const Cash = () => {
     const [totalCash, setTotalCash] = useState(0);
 
     const handleInputChange = (e) => {
@@ -21,4 +21,4 @@ const CalcMain = () => {
     );
 };
 
-export default CalcMain;
+export default Cash;

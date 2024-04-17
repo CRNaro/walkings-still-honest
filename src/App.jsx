@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import CalcMain from './components/CalcMain'
+import Cash from './components/Cash'
 //import Disbursment from './components/Disbursment'
 import Hours from './components/Hours'
 //import Nav from './components/Nav'
@@ -7,15 +7,19 @@ import Employees from './components/Employees'
 import './App.css'
 
 function App() {
+  const [totalCash, setTotalCash] = useState(0)
+  const [totalHours, setTotalHours] = useState(0)
 
+  const hourlyRate = totalHours > 0 ? totalCash / totalHours : 0;
 
   return (
     <>
       {/* <Nav /> */}
       <div className="container">
-        <CalcMain />
-        <Hours />
-        <Employees />
+        <Cash totalCash={totalCash} setTotalCash={setTotalCash}/>
+        <Hours totalHours={totalHours} setTotalHours={setTotalHours}/>
+        <Employees hourlyRate={hourlyRate} setTotalCash={setTotalCash} />
+        <p>${totalCash} cash / {totalHours} total hours worked = ${hourlyRate.toFixed(2)} per hour worked</p>
         {/* <Disbursment />  */}
         
       </div>
