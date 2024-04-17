@@ -9,6 +9,7 @@ import './App.css'
 function App() {
   const [totalCash, setTotalCash] = useState(0)
   const [totalHours, setTotalHours] = useState(0)
+  const [totalHoursEntered, setTotalHoursEntered] = useState(0)
 
   const hourlyRate = totalHours > 0 ? totalCash / totalHours : 0;
 
@@ -18,8 +19,9 @@ function App() {
       <div className="container">
         <Cash totalCash={totalCash} setTotalCash={setTotalCash}/>
         <Hours totalHours={totalHours} setTotalHours={setTotalHours}/>
-        <Employees hourlyRate={hourlyRate} setTotalCash={setTotalCash} />
-        <p>${totalCash} cash / {totalHours} total hours worked = ${hourlyRate.toFixed(2)} per hour worked</p>
+        <Employees hourlyRate={hourlyRate} setTotalHoursEntered={setTotalHoursEntered}  />  
+        <p style={{ color: totalHoursEntered >= totalHours ? 'black' : 'red'}}>
+          ${totalCash} cash / {totalHours} total hours worked = ${hourlyRate.toFixed(2)} per hour worked</p>
         {/* <Disbursment />  */}
         
       </div>

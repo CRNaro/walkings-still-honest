@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-function Employees({ hourlyRate }) {
+function Employees({ hourlyRate, setTotalHoursEntered}) {
   const [numEmployees, setNumEmployees] = useState(0);
   const [employeeNames, setEmployeeNames] = useState([]);
 
@@ -14,6 +14,11 @@ function Employees({ hourlyRate }) {
     newEmployees[index][field] = e.target.value;
     setEmployeeNames(newEmployees);
   };
+
+  useEffect(() => {
+    const totalHours = employeeNames.reduce((total, employee) => total + Number(employee.hours), 0);
+    setTotalHoursEntered(totalHours);
+}, [employeeNames, setTotalHoursEntered]);
 
   return (
     <div>
