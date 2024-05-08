@@ -1,0 +1,49 @@
+
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #1c8a9b;
+    border-radius: 4px;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 1px 1px #ccc;
+}
+
+.input-field:focus {
+    border-color: #f39c12; /* Replace with your desired color */
+}
+
+.select-container {
+    position: relative;
+    display: inline-block;
+}
+
+.select {
+    width: 24%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #1c8a9b;
+    border-radius: 4px;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 1px 1px #ccc;
+    color: #2c3e50;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.select:after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    background: #34495e;
+    cursor: pointer;
+    pointer-events: none;
+    transition: .25s all ease;
+}
+
+.select:hover::after {
+    color: #f39c12;
+}
