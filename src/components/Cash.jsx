@@ -10,10 +10,13 @@ const Cash = ({ totalCash, setTotalCash }) => {
     return (
         <Formik>
             <form>  
-            Total Cash Received
+                <div>
+            Total Cash Received:
+            </div>
             <input
                 className="input-field"
                 type="number"
+                placeholder="Enter Total Cash Received"
                 value={totalCash}
                 onChange={handleInputChange}/>
             </form>
