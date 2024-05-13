@@ -8,15 +8,17 @@
     border-radius: 4px;
     box-sizing: border-box;
     box-shadow: 1px 1px 1px 1px #ccc;
+    background-color: rgb(238, 230, 218);
 }
 
 .input-field:focus {
-    border-color: #f39c12; /* Replace with your desired color */
+    border-color: #f9ddb1; /* Replace with your desired color */
 }
 
 .select-container {
     position: relative;
     display: inline-block;
+    
 }
 
 .select {
@@ -30,6 +32,7 @@
     color: #2c3e50;
     cursor: pointer;
     font-size: 14px;
+    background-color: rgb(238, 230, 218);
 }
 
 .select:after {
