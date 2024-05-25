@@ -9,3 +9,7 @@
     box-shadow: 1px 1px 1px 1px #ccc;
     color: rgb(4, 4, 43);
 }
+
+.input-field:focus {
+    border-color: #f69904 !important;
+}
