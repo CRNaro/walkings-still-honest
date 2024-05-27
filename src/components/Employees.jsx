@@ -8,8 +8,14 @@ function Employees({ hourlyRate, setTotalHoursEntered, totalCash, totalRounded, 
   const [employeeNames, setEmployeeNames] = useState([]);
 
   const handleNumChange = (e) => {
-    setNumEmployees(e.target.value);
-    setEmployeeNames(Array.from({ length: e.target.value }, () => ({ name: '', hours: '' })));
+    const newNumEmployees = e.target.value;
+    if (newNumEmployees > numEmployees) {
+      const newEmployees = Array.from({ length: newNumEmployees - numEmployees }, () => ({ name: '', hours: '' }));
+      setEmployeeNames([...employeeNames, ...newEmployees]);
+    } else {
+      setEmployeeNames(employeeNames.slice(0, newNumEmployees));
+    }
+    setNumEmployees(newNumEmployees);
   };
 
   const handleEmployeeChange = (index, field) => (e) => {
@@ -17,6 +23,22 @@ function Employees({ hourlyRate, setTotalHoursEntered, totalCash, totalRounded, 
     newEmployees[index][field] = e.target.value;
     setEmployeeNames(newEmployees);
   };
+  // const handleNumChange = (e) => {
+  //   const newNumEmployees = e.target.value;
+  //   if (newNumEmployees > numEmployees) {
+  //     const newEmployees = Array.from({ length: newNumEmployees - numEmployees }, () => ({ name: '', hours: '' }));
+   
+  //   // setNumEmployees(e.target.value);
+  //   // setEmployeeNames(Array.from({ length: e.target.value }, () => ({ name: '', hours: '' })));
+  //   setEmployeeNames([...employeeNames, ...newEmployees]);
+  // }else{
+  //   setEmployeeNames(employeeNames.slice(0, newNumEmployees));
+  // }
+  // const handleEmployeeChange = (index, field) => (e) => {
+  //   const newEmployees = [...employeeNames];
+  //   newEmployees[index][field] = e.target.value;
+  //   setNumEmployees(newEmployees);
+  // };
 
   useEffect(() => {
     const totalHours = employeeNames.reduce((total, employee) => total + Number(employee.hours), 0);

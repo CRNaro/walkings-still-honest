@@ -8,7 +8,7 @@ const Cash = ({ totalCash, setTotalCash }) => {
         setTotalCash(e.target.value);
     };
 
-    const styles = {
+    const [styles, setStyles] = useState({
         width: '25%',
         padding: '10px',
         margin: '10px 0',
@@ -17,7 +17,7 @@ const Cash = ({ totalCash, setTotalCash }) => {
         boxSizing: 'border-box',
         boxShadow: '1px 1px 1px 1px #ccc',
         color: 'rgb(4, 4, 43'
-    };
+    });
 
     const focusStyles = {
         borderColor: '1px solid #ccc',
@@ -31,8 +31,8 @@ const Cash = ({ totalCash, setTotalCash }) => {
             </div>
             <Field
                 style={styles}
-                onFocus={() => { styles.borderColor = focusStyles.borderColor }}
-                onBlur={() => { styles.borderColor = '1px solic #ccc' }}
+                onFocus={() => setStyles({ ...styles, borderColor: focusStyles.borderColor })}
+                onBlur={() => setStyles({ ...styles, borderColor: '1px solic #ccc' })}
                 className="input-field"
                 type="number"
                 name="totalCash"
